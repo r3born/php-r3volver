@@ -1,0 +1,20 @@
+{
+    "name": "r3born/r3volver",
+    "description": "The quickdraw php micro-framework.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Carlos Davide",
+            "email": "carlosdavide@r3born.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "2.2.0",
+        "symfony/yaml": "v2.3.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "R3born\\R3volver\\": "lib/"
+        }
+    }
+}
