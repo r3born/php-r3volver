@@ -73,12 +73,16 @@ class Services {
                 throw new \Exception('Bad app configuration (check "app" key in configuration file)');
             }
 
-            $slimConfiguration = (array)$configuration->app;
+            $slimConfiguration = (array) $configuration->app;
             foreach ($slimConfiguration as $k => $v) {
                 $app->config($k, $v);
             }
         }
-        
+
+        if (!property_exists($configuration, 'routes')) {
+            throw new \Exception('The configuration file must contain the "routes" field');
+        }
+
         return $app;
     }
 
@@ -90,10 +94,10 @@ class Services {
             throw new \Exception('Unknown controller: ' . $name);
         }
 
-        $fqcn = $configuration->controllers->name;
+        $fqcn = $configuration->controllers->{$name};
 
         if (!is_subclass_of('\R3born\R3volver\Controller', $fqcn)) {
-            throw new \Exception('Class does not extend \R3born\R3volver\Controller: ' . $fqcn);
+            throw new \Exception('Class does not extend "\R3born\R3volver\Controller": ' . $fqcn);
         }
 
         $controller = new $fqcn();
