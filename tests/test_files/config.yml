@@ -1,0 +1,6 @@
+## Sample configuration for test.
+---
+key1:
+  - 1
+  - 3
+  - 4
