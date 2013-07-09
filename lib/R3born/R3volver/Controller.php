@@ -2,19 +2,15 @@
 
 namespace R3born\R3volver;
 
-use Slim\Slim;
+use R3born\R3volver\Services;
 
 class Controller {
 
     /**
-     *
-     * @var Slim
+     * 
+     * @return \Slim\Slim
      */
-    protected $app = null;
-
-    public function setApp(Slim $app) {
-        $this->app = $app;
-        return $this;
+    public function app() {
+        return Services::getApp();
     }
-
 }

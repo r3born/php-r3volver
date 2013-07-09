@@ -18,11 +18,11 @@ class Services {
     }
 
     public static function getApp() {
-        if (empty(self::$services['r3volver.slim.app.' . $name])) {
-            self::$services['r3volver.slim.app.' . $name] = self::initializeApp();
+        if (empty(self::$services['r3volver.slim.app'])) {
+            self::$services['r3volver.slim.app'] = self::initializeApp();
         }
 
-        return self::$services['r3volver.slim.app.' . $name];
+        return self::$services['r3volver.slim.app'];
     }
 
     public static function getController($name) {
@@ -102,14 +102,11 @@ class Services {
 
         $fqcn = $r3volver->controllers->{$name};
 
-        if (!is_subclass_of('\R3born\R3volver\Controller', $fqcn)) {
-            throw new \Exception('Class does not extend "\R3born\R3volver\Controller": ' . $fqcn);
+        if (!is_subclass_of($fqcn, 'R3born\R3volver\Controller')) {
+            throw new \Exception('Controller class does not extend "\R3born\R3volver\Controller": ' . $fqcn);
         }
 
-        $controller = new $fqcn();
-        $controller->setApp(self::getApp());
-
-        return $controller;
+        return new $fqcn();
     }
 
     protected static function checkR3volverConfiguration() {

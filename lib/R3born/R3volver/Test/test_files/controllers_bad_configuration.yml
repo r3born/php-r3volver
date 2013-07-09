@@ -1,0 +1,6 @@
+## bad controller definition
+---
+r3volver:
+  controllers:
+    some_bad_controller: 23
+    another_bad_controller: '\stdClass'

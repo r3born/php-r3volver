@@ -1,0 +1,5 @@
+## YAML Template.
+---
+r3volver:
+  controllers:
+    nice_controller: '\R3born\R3volver\Test\TestController'

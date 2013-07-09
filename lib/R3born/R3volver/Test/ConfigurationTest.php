@@ -11,7 +11,7 @@ class ConfigurationTest extends PHPUnit_Framework_TestCase {
         Configuration::load(__DIR__ . '/test_files/empty.yml');
         $this->assertNull(Configuration::get());
     }
-    
+
     public function testGetNotNullConfiguration() {
         Configuration::load(__DIR__ . '/test_files/empty_r3volver.yml');
         $this->assertInstanceOf('stdClass', Configuration::get());

@@ -13,7 +13,7 @@ class TestService {
     public function __construct($property = 0) {
         $this->setProperty($property);
     }
-    
+
     public function getProperty() {
         return $this->property;
     }
@@ -54,11 +54,11 @@ class ServicesTest extends PHPUnit_Framework_TestCase {
 
     public function testGetService() {
         Configuration::load(__DIR__ . '/test_files/services_good_configuration.yml');
-        
+
         $this->assertInstanceOf('\R3born\R3volver\Test\TestService', Services::get('nice_service'));
         $this->assertObjectHasAttribute('property', Services::get('nice_service'));
         $this->assertEquals(42, Services::get('nice_service')->getProperty());
-        
+
         $this->assertInstanceOf('\R3born\R3volver\Test\TestService', Services::get('another_nice_service'));
         $this->assertObjectHasAttribute('property', Services::get('another_nice_service'));
         $this->assertEquals(17, Services::get('another_nice_service')->getProperty());
