@@ -35,13 +35,20 @@ class Services {
 
     protected static function initializeService($name) {
         $configuration = Configuration::get();
+        
+        if (!property_exists($configuration, 'r3volver') ||
+                !is_object($configuration->r3volver)) {
+            throw new \Exception('Bad configuration: R3volver must be configured');
+        }
+        
+        $r3volver = $configuration->r3volver;
 
-        if (!property_exists($configuration, 'services') ||
-                !property_exists($configuration->services, $name)) {
+        if (!property_exists($r3volver, 'services') ||
+                !property_exists($r3volver->services, $name)) {
             throw new \Exception('Unknown service: ' . $name);
         }
 
-        $service = $configuration->services->{name};
+        $service = $r3volver->services->{name};
 
         if (!property_exists($service, 'class') || !is_array($service->class)) {
             throw new \Exception('Bad service configuration: ' . $name);
@@ -66,20 +73,27 @@ class Services {
 
     protected static function initializeApp() {
         $configuration = Configuration::get();
+        
+        if (!property_exists($configuration, 'r3volver') ||
+                !is_object($configuration->r3volver)) {
+            throw new \Exception('Bad configuration: R3volver must be configured');
+        }
+        
+        $r3volver = $configuration->r3volver;
         $app           = new Slim();
 
-        if (property_exists($configuration, 'app')) {
-            if (!is_object($configuration->app)) {
+        if (property_exists($r3volver, 'app')) {
+            if (!is_object($r3volver->app)) {
                 throw new \Exception('Bad app configuration (check "app" key in configuration file)');
             }
 
-            $slimConfiguration = (array) $configuration->app;
+            $slimConfiguration = (array) $r3volver->app;
             foreach ($slimConfiguration as $k => $v) {
                 $app->config($k, $v);
             }
         }
 
-        if (!property_exists($configuration, 'routes')) {
+        if (!property_exists($r3volver, 'routes')) {
             throw new \Exception('The configuration file must contain the "routes" field');
         }
 
@@ -88,13 +102,20 @@ class Services {
 
     protected static function initializeController($name) {
         $configuration = Configuration::get();
+        
+        if (!property_exists($configuration, 'r3volver') ||
+                !is_object($configuration->r3volver)) {
+            throw new \Exception('Bad configuration: R3volver must be configured');
+        }
+        
+        $r3volver = $configuration->r3volver;
 
-        if (!property_exists($configuration, 'controllers') ||
-                !property_exists($configuration->controllers, $name)) {
+        if (!property_exists($r3volver, 'controllers') ||
+                !property_exists($r3volver->controllers, $name)) {
             throw new \Exception('Unknown controller: ' . $name);
         }
 
-        $fqcn = $configuration->controllers->{$name};
+        $fqcn = $r3volver->controllers->{$name};
 
         if (!is_subclass_of('\R3born\R3volver\Controller', $fqcn)) {
             throw new \Exception('Class does not extend "\R3born\R3volver\Controller": ' . $fqcn);
