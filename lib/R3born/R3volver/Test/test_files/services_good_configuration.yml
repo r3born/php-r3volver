@@ -1,0 +1,13 @@
+## YAML Template.
+---
+r3volver:
+  services:
+    nice_service:
+      #constructor with parameters
+      class: ['\R3born\R3volver\Test\TestService', 42]
+    another_nice_service:
+      #constructor without parameters, followed by method calls
+      class: ['\R3born\R3volver\Test\TestService']
+      calls:
+        - ['setProperty', 24]
+        - ['setProperty', 17]
