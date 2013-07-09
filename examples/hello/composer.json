@@ -1,0 +1,11 @@
+{
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/r3born/php-r3volver"
+        }
+    ],
+    "require": {
+        "r3born/r3volver": "dev-master"
+    }
+}
