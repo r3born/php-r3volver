@@ -1,0 +1,4 @@
+## YAML Template.
+---
+r3volver:
+  key_not_expected_by_framework: value
