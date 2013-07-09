@@ -1,6 +1,6 @@
 <?php
 
-namespace R3born\R3volver;
+namespace R3born\R3volver\Test;
 
 use \PHPUnit_Framework_TestCase;
 use R3born\R3volver\Configuration;

@@ -17,7 +17,8 @@
     },
     "autoload": {
         "psr-0": {
-            "R3born\\R3volver\\": "lib/"
+            "R3born\\R3volver\\": "lib/",
+            "R3born\\R3volver\\Test\\": "lib/"
         }
     }
 }

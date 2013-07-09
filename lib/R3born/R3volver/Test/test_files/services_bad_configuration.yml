@@ -1,0 +1,9 @@
+## bad service definition
+---
+r3volver:
+  services:
+    a_bad_service:
+      wrong: definition
+    another_bad_service:
+      class: '\stdClass'
+      calls: 43

@@ -1,0 +1,4 @@
+## configuration template with invalid r3volver config
+---
+r3volver:
+  key_not_expected_by_framework: value
