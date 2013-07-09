@@ -113,7 +113,11 @@ class Services {
         }
 
         $fqcn = $r3volver->controllers->{$name};
-
+        
+        if (!class_exists($fqcn)) {
+            throw new \Exception('Controller class does not exist: ' . $fqcn);
+        }
+        
         if (!is_subclass_of($fqcn, 'R3born\R3volver\Controller')) {
             throw new \Exception('Controller class does not extend "\R3born\R3volver\Controller": ' . $fqcn);
         }

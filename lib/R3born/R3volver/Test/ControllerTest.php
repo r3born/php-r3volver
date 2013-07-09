@@ -46,6 +46,10 @@ class ControllerTest extends PHPUnit_Framework_TestCase {
         Configuration::load(__DIR__ . '/test_files/empty_r3volver.yml');
         Services::getController('some_controller');
     }
+    
+    public function testNonExistentController() {
+        throw new \Exception();
+    }
 
     public function testBadControllerConfiguration() {
         $this->setExpectedException('Exception', 'Controller class does not extend "\R3born\R3volver\Controller": 23');
