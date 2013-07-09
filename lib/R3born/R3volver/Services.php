@@ -87,6 +87,18 @@ class Services {
             throw new \Exception('No routes configured');
         }
 
+        foreach ($r3volver->routes as $name => $route) {
+            list($controller, $function) = explode('.', $route[2]);
+            $m = $app
+                    ->map($route[1], array(Services::getController($controller), $function))
+                    ->via($route[0])
+                    ->name($name);
+
+//            if (!empty($route[3])) {
+//                $m->conditions($route[3]);
+//            }
+        }
+
         return $app;
     }
 
