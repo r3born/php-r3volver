@@ -119,7 +119,7 @@ Start the webserver:
 php -S 127.0.0.1:8080 -t .
 ```
 
-Now go to [http://127.0.0.1:8080/hello](). You have a web application.
+Now go to http://127.0.0.1:8080/hello. You have a web application.
 
 See the examples folder for a slightly more complex "hello" example where all
 of the framework components are explained.
@@ -135,7 +135,7 @@ Credits
 `r3volver` depends on [Slim][] and [Symfony][]'s YAML component, with some
 concepts borrowed from Symfony's Service Container.
 
-Unit tests use [PHPUnit][]
+Unit tests use [PHPUnit][].
 
 [Symfony]: http://symfony.com/
 [Silex]:   http://silex.sensiolabs.org/
