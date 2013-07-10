@@ -1,14 +1,16 @@
 # the r3volver root key is reserved for framework configurations
 r3volver:
   
-  # routes map http methods and URIs to controllers and handler functions
+  # 'routes' map http methods and URIs to controllers and handler functions
   # format is (camel case is not mandatory):
   # routeName: [HTTP method, URI, ControllerName.functionName]
+  # all route hanling is done by the Slim instance
   routes:
     SayHello: [GET, /hello/:name, Hello.sayHello]
     SayHi: [GET, /hi/:name, Hello.sayHi]
   
-  # maps names used in the service container and routes to PHP class names
+  # 'controllers' maps names used in the service container and routes to PHP
+  # class names
   # format is:
   # Name: FullyQualifiedClassName
   # a controller can be requested app wide with Services::getController($name)
@@ -22,6 +24,7 @@ r3volver:
   #   class: [FullyQualifiedClassName, constructor_arg1, constructor_arg2, ...]
   #   calls:
   #     - [MethodName, arg1, arg2, ...]
+  # a service may be requested app wide with Services::get($name)
   services:
     ENGreeter:
       class: [GreeterService, en]
@@ -35,6 +38,8 @@ r3volver:
 # any key at the root level that is not 'r3volver' is considered to be
 # developer defined and can have any value or structure
 hello:
+  # greeting templates used by the GreeterService
+  # (example of configuration usage)
   greeting_templates:
     en: 'Hello, :name!'
     pt: 'Olá, :name!'

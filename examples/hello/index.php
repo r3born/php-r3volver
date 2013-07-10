@@ -1,6 +1,7 @@
 <?php
 
 // require the composer generated autoloader
+// dont forget to "composer install" ;)
 require_once __DIR__ . '/vendor/autoload.php';
 
 // we could use composer for our classes too
