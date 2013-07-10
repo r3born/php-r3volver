@@ -8,14 +8,14 @@ Description
 
 Have you ever wished you could have a PHP framework that isn't bloated and slow
 but at the same time stays out of your way and allows you to create apps or APIs
-without much hassle? Something in between Symfony and Silex or Slim maybe?
+without much hassle? Something in between [Symfony][] and [Silex][] or [Slim][] maybe?
 
 `r3volver` tries to be just that. A simple, thin layer of PHP glue allowing the
-Slim Framework to be used to develop fast, yet simply and beautifully organized
+[Slim][] Framework to be used to develop fast, yet simply and beautifully organized
 web apps.
 
-`r3volver`'s direct dependencies are Slim and Symfony's YAML component. Plus
-PHPUnit if you want to run the unit tests.
+`r3volver`'s direct dependencies are [Slim][] and [Symfony][]'s YAML component. Plus
+[PHPUnit][] if you want to run the unit tests.
 
 Features
 --------
@@ -119,7 +119,7 @@ Start the webserver:
 php -S 127.0.0.1:8080 -t .
 ```
 
-Now go to [http://127.0.0.1:8080/hello]. You have a web application.
+Now go to [http://127.0.0.1:8080/hello](). You have a web application.
 
 See the examples folder for a slightly more complex "hello" example where all
 of the framework components are explained.
@@ -128,3 +128,16 @@ License
 -------
 
 This software is made available under the terms of the MIT license.
+
+Credits
+-------
+
+`r3volver` depends on [Slim][] and [Symfony][]'s YAML component, with some
+concepts borrowed from Symfony's Service Container.
+
+Unit tests use [PHPUnit][]
+
+[Symfony]: http://symfony.com/
+[Silex]:   http://silex.sensiolabs.org/
+[Slim]:    http://www.slimframework.com/
+[PHPUnit]: http://phpunit.de/
