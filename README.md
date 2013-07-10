@@ -17,6 +17,16 @@ web apps.
 `r3volver`'s direct dependencies are Slim and Symfony's YAML component. Plus
 PHPUnit if you want to run the unit tests.
 
+Features
+--------
+
+- Simple, small and clean code base
+- Reduced number of dependencies
+- Simplified Service Container
+- Readable configuration format
+- Simple access to core functionality in an application such as Services and
+  Controllers
+
 Usage
 -----
 
@@ -25,14 +35,14 @@ Here's a quick rundown for the impatient.
 Create your project directory and files:
 
 ```Shell
-$ mkdir hello
-$ mkdir hello/templates
-$ touch hello/{config.yml,index.php,composer.json}
-$ touch hello/templates/hello.php
-$ cd hello
+mkdir hello
+mkdir hello/templates
+touch hello/{composer.json,config.yml,HelloController.php,index.php}
+touch hello/templates/hello.php
+cd hello
 ```
 
-Configure composer.json and install 
+Configure composer.json and install: 
 
 ```JSON
 {
@@ -49,7 +59,7 @@ Configure composer.json and install
 ```
 
 ```Shell
-$ composer install
+composer install
 ```
 
 Configure your application:
@@ -59,7 +69,7 @@ Configure your application:
 r3volver:
   routes:
     hello: [GET, /hello, Hello.hello]
-  controller:
+  controllers:
     Hello: '\HelloController'
 ```
 
@@ -96,12 +106,20 @@ Create your application entry point:
 ```PHP
 <?php // file: hello/index.php
 
-require __DIR__ . '/vendor/autoload.php';
-require __DIR__ . '/HelloController.php';
+require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/HelloController.php';
 
 R3born\R3volver\Configuration::load(__DIR__ . '/config.yml');
 R3born\R3volver\Services::getApp()->run();
 ```
+
+Start the webserver:
+
+```Shell
+php -S 127.0.0.1:8080 -t .
+```
+
+Now go to [http://127.0.0.1:8080/hello]. You have a web application.
 
 See the examples folder for a slightly more complex "hello" example where all
 of the framework components are explained.
